@@ -1,0 +1,135 @@
+/*
+* A simple, responsive, mobile first CSS grid
+*/
+
+/* Set the default font size to 16px so we can easily calculate em values */
+html {font-size: 16px;}
+
+/* Place any borders or padding inside the box */
+.grid, .column {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Force block display on all elements with the grid class and clear the left and right sides of the element */
+.grid {
+    clear: both;
+    display: block;
+}
+
+.grid .column {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Simple classes for removing gutters/padding from columns */
+.no-gutters .column, .column.no-gutters {
+    padding: 0 !important;
+}
+
+/* Wrapping at a maximum width is optional */
+.wrap .grid, .grid.wrap {
+    margin: 0 auto;
+    max-width: 60em;
+}
+
+/* Clearfix after every .grid */
+.grid {
+    *zoom: 1;
+}
+
+.grid:before, .grid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.grid:after {
+    clear: both;
+}
+
+/* Resize images to fit the size of the column they are in */
+.column img {
+    max-width: 100%;
+}
+
+/* Stack columns on smaller screens that do not have a no-stacking class */
+.grid:not(.no-stacking) > .column {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.column .grid .column {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Utility classes */
+.align-center { text-align: center; }
+.align-left { text-align: left; }
+.align-right { text-align: right; }
+.clear-both { clear: both; }
+.clear-left { clear: left; }
+.clear-right { clear: right; }
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+/* Center text on mobile/small screens */
+.center-on-mobiles {
+    text-align: center !important;
+}
+
+/* Simple class to hide elements on mobile/small screens */
+.hide-on-mobiles {
+    display: none !important;
+}
+
+/* Responsive/Mobile Styling Small Screens */
+@media screen and (min-width: 40em) {
+    /* This ensures the outer gutters equal to the inner gutters (10px*2). */
+    .grid .column:first-child { padding-left: 20px; }
+    .grid .column:last-child { padding-right: 20px; }
+
+    /* Remove extra padding from nested columns */
+    .column .column:first-child { padding-left: 0; }
+    .column .column:last-child { padding-right: 0; }
+    .column .grid:first-child > .column { padding-top: 0; }
+    .column .grid:last-child > .column { padding-bottom: 0; }
+
+    /* Column width classes */
+    .grid .column.whole, .grid .column.w-100 { width: 100%; }
+    .grid .column.half, .grid .column.w-1-2, .grid .column.three-sixths, .grid .column.w-3-6 { width: 50%; }
+    .grid .column.one-sixth, .grid .column.w-1-6 { width: 16.6667%; }
+    .grid .column.one-third, .grid .column.w-1-3, .grid .column.two-sixths, .grid .column.w-2-6 { width: 33.3332%; }
+    .grid .column.two-thirds, .grid .column.w-2-3, .grid .column.four-sixths, .grid .column.w-4-6 { width: 66.6665%; }
+    .grid .column.one-quarter, .grid .column.one-fourth, .grid .column.w-1-4 { width: 25%; }
+    .grid .column.three-quarters, .grid .column.three-fourths, .grid .column.w-3-4 { width: 75%; }
+    .grid .column.one-fifth, .grid .column.w-1-5 { width: 20%; }
+    .grid .column.two-fifths, .grid .column.w-2-5 { width: 40%; }
+    .grid .column.three-fifths, .grid .column.w-3-5 { width: 60%; }
+    .grid .column.four-fifths, .grid .column.w-4-5 { width: 80%; }
+    .grid .column.five-sixths, .grid .column.w-5-6 { width: 83.3335%; }
+    .grid .column.golden-small, .grid .column.w-g-s { width: 38.2716%; }
+    .grid .column.golden-large, .grid .column.w-g-l { width: 61.7283%; }
+
+    /* Change the behaviour set above */
+    .center-on-mobiles {
+        text-align: inherit !important;
+    }
+
+    /* Reset display so element are visible again */
+    .hide-on-mobiles {
+        display: inline !important;
+    }
+}
+
+/* Responsive/Mobile Styling Large screens */
+@media screen and (min-width: 80em) {
+    .wider .grid, .grid.wider {
+        margin: 0 auto;
+        max-width: 80em;
+    }
+}

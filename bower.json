@@ -1,0 +1,12 @@
+{
+    "name": "ResGS",
+    "version": "0.0.1",
+    "author": "TekSEF",
+    "homepage": "http://www.resgs.com/",
+    "main": "./resgs.css",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/TekSEF/RegGS.git"
+    }
+}
