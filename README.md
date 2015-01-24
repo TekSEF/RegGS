@@ -1,2 +1,2 @@
-# RegGS
+# ResGS
 Responsive Grid System
